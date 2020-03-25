@@ -13,18 +13,13 @@ public class Piles
    */
    public boolean isDone()
    {
-      /*
-         We are done when we have some combination of the numbers
-         1 through 9 in the piles. Therefore, we can first check to
-         make sure we have exactly 9 piles so we don't waste our time.
-         We also need to take care that we have the exact numbers and
-         avoid a situation like  1 1 3 4 5 6 7 8 10  which means we
-         still aren't done.
-      */
-      . . .
-
-
-
+     int e=1;
+     for (int p : piles)
+     {
+         if (p!=e)
+            return false;
+        }
+     return true;
    }
 
    private ArrayList<Integer> piles;
@@ -72,6 +67,6 @@ public class Piles
    */
    public void playRound()
    {
-	   // insert your code for ver 1
+       // insert your code for ver 1
    }
 }
