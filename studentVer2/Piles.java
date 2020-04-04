@@ -6,7 +6,9 @@ import java.util.Random;
 */
 public class Piles
 {
-   /**
+   private ArrayList<Integer> piles;
+
+    /**
       Checks whether the game is done.
       @return true when the piles have size
       1, 2, 3, 4, 5, 6, 7, 8, and 9, in some order.
@@ -14,16 +16,18 @@ public class Piles
    public boolean isDone()
    {
      int e=1;
+     if (piles.size() != 9)
+         return false;
      for (int p : piles)
      {
          if (p!=e)
             return false;
+         e+=1;
         }
      return true;
    }
 
-   private ArrayList<Integer> piles;
-
+  
    /**
       Sets up the game randomly with some number of piles of random
       size. The pile sizes add up to 45.
@@ -67,6 +71,14 @@ public class Piles
    */
    public void playRound()
    {
-       // insert your code for ver 1
+       int n=piles.size();
+       for ( int i=0; i<piles.size(); i++)
+       {
+           if (piles.get(i)>1)
+                piles.set(i, (piles.get(i)-1));
+           else
+                piles.remove(i);
+        }
+       piles.add(n);
    }
 }
