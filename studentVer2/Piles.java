@@ -14,10 +14,13 @@ public class Piles
    public boolean isDone()
    {
      int e=1;
+     if (piles.size()!=9)
+        return false;
      for (int p : piles)
      {
          if (p!=e)
             return false;
+         e+=1;
         }
      return true;
    }
@@ -67,6 +70,21 @@ public class Piles
    */
    public void playRound()
    {
-       // insert your code for ver 1
+       int numremoved=0;
+       for (int i=0; i<piles.size(); i++)
+       {
+           if (piles.get(i)==1){
+               piles.remove(i);
+               i=i-1;}
+           else if (piles.get(i)>1)
+            piles.set(i, piles.get(i)-1);
+           numremoved+=1;
    }
+   piles.add(numremoved);
+   System.out.println(piles);
 }
+}
+
+
+
+
